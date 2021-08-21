@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-import "../static/CSS/Home.css"
+import JobApplicationForm from "./JobApplicationForm.jsx"
+import ContactForm from "./ContactForm.jsx"
 
 const Home = () => {
-    const [ jobApplications, setJobApplications ] = useState()
+    const [ jobApplications, setJobApplications ] = useState( null )
+    const [ modal, setModal ] = useState( null )
 
     useEffect( () => {
 
@@ -14,49 +16,104 @@ const Home = () => {
 
     }, [] )
 
+    const navButtonHandler = type => {
+
+        if ( type === 0 )
+            setModal( <JobApplicationForm setModal = { setModal } /> )
+
+        if ( type === 1 )
+            setModal( <ContactForm setModal = { setModal } /> )
+
+    }
+
     return (
 
-        <div id = "Home" className = "Component">
+        <div className = "Component">
 
             <header>
-                <h1>Job Applications</h1>
+
+                <h1 className = "HeadingText">Job Applications</h1>
+
             </header>
 
             <nav>
-                <button>Create Job Application</button>
-                <button>Create Contact</button>
-                <button>View Contacts</button>
+
+                <button className = "NavButton"
+                    onClick = { () => navButtonHandler( 0 ) }>Create Job Application</button>
+
+                <button className = "NavButton"
+                    onClick = { () => navButtonHandler( 1 ) }>Create Contact</button>
+
+                <button className = "NavButton"
+                    onClick = { () => navButtonHandler( 2 ) }>View Contacts</button>
+
+                <button className = "NavButton"
+                    onClick = { () => navButtonHandler( 3 ) }>Sort</button>
+
+                <button className = "NavButton"
+                    onClick = { () => window.location.reload( false ) }>Refresh</button>
+
             </nav>
 
-            <main>
+            <main className = "table-responsive">
+
                 <table className = "table">
+
                     <thead>
+
                         <tr>
+
                             <th scope = "row">ID</th>
                             <th scope = "row">Status</th>
                             <th scope = "row">Interviews</th>
                             <th scope = "row">Company Name</th>
                             <th scope = "row">Job Title</th>
+
                         </tr>
+
                     </thead>
+
                     <tbody>
+
                         {
+
                             jobApplications
+
                                 ? jobApplications.map( item => { return (
-                                    <tr>
-                                        <td scope = "row">{ item.id }</td>
-                                        <td>{ item.status }</td>
-                                        <td>{ item.interviews }</td>
+
+                                    <tr key = { item.id }
+                                        onClick = { () => navButtonHandler( 4 ) }>
+
+                                        <td className = "ID">{ item.id }</td>
+
+                                        {
+
+                                            item.status === "open"
+
+                                                ? <td className = "StatusOpen">{ item.status }</td>
+                                                : <td className = "StatusClosed">{ item.status }</td>
+
+                                        }
+
+                                        <td className = "Interviews">{ item.interviews }</td>
                                         <td>{ item.companyName }</td>
-                                        <td>{ item.jobTitle }</td>
+                                        <td className = "JobTitle">{ item.jobTitle }</td>
+
                                     </tr>
+
                                 ) } )
 
                                 : null
+
                         }
+
                     </tbody>
+
                 </table>
+
             </main>
+
+            { modal ? modal : null }
 
         </div>
 

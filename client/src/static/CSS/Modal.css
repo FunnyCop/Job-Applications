@@ -1,0 +1,166 @@
+.Modal {
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(47, 47, 47, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Modal .Form {
+  width: 65%;
+  height: 65%;
+  padding: 10px;
+  background-color: #2f2f2f;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+}
+
+.Modal .Form .FormHeader {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Modal .Form .FormHeader h3 {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Modal .Form .FormHeader span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Modal .Form .FormHeader span .ClearFormButton {
+  height: 2em;
+  padding: 0 5px 0 5px;
+  background-color: #2F2F2F;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Modal .Form .FormHeader span .CloseModalButton {
+  width: 2em;
+  height: 2em;
+  background-color: #2F2F2F;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.Modal .Form .FormBody {
+  padding: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.Modal .Form .FormBody p {
+  margin-bottom: -5px;
+  color: #E71D36;
+}
+
+.Modal .Form .FormBody .FormSection, .Modal .Form .FormBody .TextAreaSection {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.Modal .Form .FormBody .FormSection label, .Modal .Form .FormBody .TextAreaSection label {
+  width: 15%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Modal .Form .FormBody .FormSection .FormInput, .Modal .Form .FormBody .FormSection .TextArea, .Modal .Form .FormBody .TextAreaSection .FormInput, .Modal .Form .FormBody .TextAreaSection .TextArea {
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #2F2F2F;
+  border: 2px solid rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.Modal .Form .FormBody .FormSection .TextArea, .Modal .Form .FormBody .TextAreaSection .TextArea {
+  height: 100%;
+  resize: none;
+}
+
+.Modal .Form .FormBody .TextAreaSection {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.Modal .Form .FormBody input[type="submit"] {
+  width: 15%;
+  padding: 5px;
+  background-color: #2F2F2F;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.Modal #ContactForm {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}

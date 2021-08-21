@@ -1,0 +1,139 @@
+.Modal
+    width: 100vw
+    height: 100vh
+
+    padding: 10px
+
+    position: absolute
+
+    top: 0px
+    left: 0px
+
+    background-color: rgba( 47, 47, 47, 0.4 )
+
+    display: flex
+
+    align-items: center
+    justify-content: center
+
+    .Form
+        width: 65%
+        height: 65%
+
+        padding: 10px
+
+        background-color: rgba( 47, 47, 47, 1 )
+
+        box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+        display: flex
+        flex-direction: column
+
+        overflow-y: scroll
+
+        .FormHeader
+            width: 100%
+
+            display: flex
+
+            h3
+                flex-grow: 1
+
+                user-select: none
+
+            span
+                display: flex
+
+                gap: 10px
+
+                user-select: none
+
+                .ClearFormButton
+                    height: 2em
+
+                    padding: 0 5px 0 5px
+
+                    background-color: #2F2F2F
+
+                    border: none
+
+                    box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+                .CloseModalButton
+                    width: 2em
+                    height: 2em
+
+                    background-color: #2F2F2F
+
+                    border: none
+
+                    box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+        .FormBody
+            padding: 10px
+
+            flex-grow: 1
+
+            box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+            display: flex
+            flex-direction: column
+
+            gap: 10px
+
+            p
+                margin-bottom: -5px
+
+                color: #E71D36
+
+            .FormSection, .TextAreaSection
+                width: 100%
+
+                display: flex
+                flex-wrap: wrap
+
+                align-items: center
+
+                gap: 10px
+
+                label
+                    width: 15%
+
+                    user-select: none
+
+                .FormInput, .TextArea
+                    padding: 5px
+
+                    flex-grow: 1
+
+                    background-color: #2F2F2F
+
+                    border: 2px solid rgba( 0, 0, 0, 0.21 )
+
+                    box-shadow: 0px 0px 2px 1px rgba( 0, 0, 0, 0.1 )
+
+                .TextArea
+                    height: 100%
+
+                    resize: none
+
+            .TextAreaSection
+                flex-grow: 1
+
+                align-items: flex-start
+
+            input[ type = "submit" ]
+                width: 15%
+
+                padding: 5px
+
+                background-color: #2F2F2F
+
+                border: none
+
+                box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+                align-self: flex-end
+
+    #ContactForm
+        height: fit-content

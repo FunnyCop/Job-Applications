@@ -1,9 +1,8 @@
 .Component {
   padding: 10px;
-  background-color: #070707;
-  border: 2px solid rgba(210, 215, 223, 0.1);
-  -webkit-box-shadow: 0px 0px 20px 5px rgba(255, 251, 254, 0.04);
-          box-shadow: 0px 0px 20px 5px rgba(255, 251, 254, 0.04);
+  background-color: #2F2F2F;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,10 +11,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-}
-
-.Component header {
-  margin-bottom: -10px;
 }
 
 .Component header, .Component nav {
@@ -27,25 +22,81 @@
       -ms-flex-pack: center;
           justify-content: center;
   gap: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Component header {
+  margin-bottom: -10px;
+}
+
+.Component nav .NavButton {
+  padding: 5px;
+  background-color: #2F2F2F;
+  border: none;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .Component main {
-  padding: 10px;
-  border: 2px solid rgba(210, 215, 223, 0.1);
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  overflow-y: auto;
 }
 
-.Component button {
-  padding: 5px;
-  background-color: #070707;
-  border: 2px solid rgba(210, 215, 223, 0.1);
-  -webkit-box-shadow: 0px 0px 2px 2px rgba(255, 251, 254, 0.04);
-          box-shadow: 0px 0px 2px 2px rgba(255, 251, 254, 0.04);
+.Component main table thead {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.Component table tr {
-  border-bottom: 2px solid rgba(210, 215, 223, 0.1);
+.Component main table tr {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.21);
+}
+
+.Component main table tr .ID {
+  color: #7D53DE;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Component main table tr .StatusOpen {
+  color: #018E42;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Component main table tr .StatusClosed {
+  color: #E71D36;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Component main table tr .Interviews {
+  color: #FAF33E;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.Component main table tr .JobTitle {
+  color: #26FFE6;
+}
+
+.Component main table tbody tr:hover {
+  background-color: rgba(125, 125, 125, 0.1);
 }

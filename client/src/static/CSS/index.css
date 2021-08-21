@@ -8,6 +8,14 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
+*:focus {
+  outline: none;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
 body, #root, #App, #Router {
   width: 100vw;
   height: 100vh;
@@ -26,7 +34,17 @@ body, #root, #App, #Router {
           align-items: center;
 }
 
+#App {
+  background-color: #2F2F2F;
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3) inset;
+          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3) inset;
+}
+
 .Component {
   width: 90%;
   height: 90%;
+}
+
+.HeadingText {
+  text-shadow: 2px 2px 4px black;
 }

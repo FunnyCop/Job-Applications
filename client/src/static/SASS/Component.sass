@@ -1,19 +1,14 @@
 .Component
     padding: 10px
 
-    background-color: #070707
+    background-color: #2F2F2F
 
-    border: 2px solid rgba( 210, 215, 223, .1 )
-
-    box-shadow: 0px 0px 20px 5px rgba( 255, 251, 254, .04 )
+    box-shadow: 0px 0px 10px 5px rgba( 0, 0, 0, 0.3 )
 
     display: flex
     flex-direction: column
 
     gap: 10px
-
-    header
-        margin-bottom: -10px
 
     header, nav
         width: 100%
@@ -24,24 +19,65 @@
 
         gap: 10px
 
-    main
-        padding: 10px
+        user-select: none
 
-        border: 2px solid rgba( 210, 215, 223, .1 )
+    header
+        margin-bottom: -10px
+
+    nav
+
+        .NavButton
+            padding: 5px
+
+            background-color: #2F2F2F
+
+            border: none
+
+            box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+
+    main
+        padding-left: 10px
+        padding-right: 10px
+
+        box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
 
         flex-grow: 1
 
-        overflow-y: auto
+        table
 
-    button
-        padding: 5px
+            thead
+                user-select: none
 
-        background-color: #070707
+            tr
+                border-bottom: 2px solid rgba( 0, 0, 0, 0.21 )
 
-        border: 2px solid rgba( 210, 215, 223, .1 )
+                // ID Column
+                .ID
+                    color: #7D53DE
 
-        box-shadow: 0px 0px 2px 2px rgba( 255, 251, 254, .04 )
+                    user-select: none
 
-    table
-        tr
-            border-bottom: 2px solid rgba( 210, 215, 223, .1 )
+                // Status Column
+                .StatusOpen
+                    color: #018E42
+
+                    user-select: none
+
+                // Status Column
+                .StatusClosed
+                    color: #E71D36
+
+                    user-select: none
+
+                // Interviews Column
+                .Interviews
+                    color: #FAF33E
+
+                    user-select: none
+
+                // Job Title column
+                .JobTitle
+                    color: #26FFE6
+
+            tbody tr:hover
+                background-color: rgba( 125, 125, 125, 0.1 )

@@ -3,8 +3,6 @@ import { Router } from "@reach/router"
 
 import Home from "./components/Home.jsx"
 
-import "./static/CSS/App.css"
-
 const App = () => {
 
   return (
