@@ -38,4 +38,4 @@
 - **Electron Client** ( *client* ) *WIP*
 
     - Uses **Electron** and **React** to act as a **Front-End**
-    - May be packaged into an executable or used solely as a **React Application**.
+    - May be packaged into an executable or used solely as a **React Application**
