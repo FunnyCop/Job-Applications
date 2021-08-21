@@ -3,7 +3,7 @@
 
 ### Applications
 
-- **Java API** ( *jobApplications* )
+- **Java API** ( *jobApplications* ) *Mostly Finished*
 
     - Uses **Spring Boot** and **MariaDB** to act as a **Back-End** ( ***MySQL** Configuration Included* )
     - Built with **Java 1.8** for compatibility with **Raspberry Pi OS**, *may be packaged with more recent versions for different systems*
