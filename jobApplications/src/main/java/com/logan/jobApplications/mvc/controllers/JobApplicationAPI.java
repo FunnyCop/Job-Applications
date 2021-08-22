@@ -134,8 +134,8 @@ public class JobApplicationAPI {
 
 // find all job applications by contact
 
-	@RequestMapping( value = "/contact/{contact}", method = RequestMethod.GET )
-	public Set< JobApplication > findAllByContacts( @PathVariable( "contact" ) Long contactId ) {
+	@RequestMapping( value = "/contact/{contactId}", method = RequestMethod.GET )
+	public Set< JobApplication > findAllByContacts( @PathVariable( "contactId" ) Long contactId ) {
 
 		Contact contact = contactService.findById( contactId );
 

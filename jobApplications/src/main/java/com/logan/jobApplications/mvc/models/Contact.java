@@ -1,12 +1,18 @@
 package com.logan.jobApplications.mvc.models;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -15,6 +21,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table( name = "contacts" )
@@ -33,7 +41,7 @@ public class Contact {
  * createdAt - Date - Generated
  * updatedAt - Date - Generated
  *
- * job_application_id - Long - Generated ( unavailable )
+ * jobApplications - Set< jobApplication > - Many to Many
  */
 
 
@@ -103,6 +111,23 @@ public class Contact {
 
     private Date updatedAt;
 
+
+// contact.jobApplications
+
+ 	@ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+
+	@JoinTable(
+
+		name = "job_application_contact",
+		joinColumns = { @JoinColumn( name = "contact_id" ) },
+		inverseJoinColumns = { @JoinColumn( name = "job_application_id" ) }
+
+	)
+
+ 	@JsonBackReference
+
+ 	private Set< JobApplication > jobApplications;
+
 // created_at generator
 
 
@@ -164,6 +189,12 @@ public class Contact {
 		{ return this.updatedAt; }
 
 
+// contact.jobApplications
+
+	public Set< JobApplication > getJobApplications()
+		{ return this.jobApplications; }
+
+
 // Setters
 
 
@@ -189,6 +220,12 @@ public class Contact {
 
 	public void setEmail( String email )
 		{ this.email = email; }
+
+
+// contact.jobApplications
+
+	public void setJobApplications( Set< JobApplication > jobApplications )
+		{ this.jobApplications = jobApplications; }
 
 
 // Constructors

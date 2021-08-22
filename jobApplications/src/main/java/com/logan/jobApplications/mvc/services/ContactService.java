@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import com.logan.jobApplications.mvc.models.Contact;
+import com.logan.jobApplications.mvc.models.JobApplication;
 import com.logan.jobApplications.mvc.repositories.ContactRepository;
 
 @Service
@@ -22,6 +23,9 @@ public class ContactService {
  * findAllByCompanyName
  * findAllByName
  * findAllByEmail
+ * 
+ * findAllByJobApplications
+ * findAllByJobApplicationsNotContains
  */
 
 
@@ -79,6 +83,18 @@ public class ContactService {
 
 	public Set< Contact > findAllByEmail( String email )
 		{ return contactRepository.findAllByEmail( email ); }
+
+
+// find all contacts by job application
+
+	public Set< Contact > findAllByJobApplications( JobApplication jobApplication )
+		{ return contactRepository.findAllByJobApplications( jobApplication ); }
+
+
+// find all by job application not contains
+
+	public Set< Contact > findAllByJobApplicationsNotContains( JobApplication jobApplication )
+		{ return contactRepository.findAllByJobApplicationsNotContains( jobApplication ); }
 
 
 // Update

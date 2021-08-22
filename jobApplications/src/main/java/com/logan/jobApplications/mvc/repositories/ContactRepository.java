@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.logan.jobApplications.mvc.models.Contact;
+import com.logan.jobApplications.mvc.models.JobApplication;
 
 @Repository
 public interface ContactRepository extends CrudRepository< Contact, Long > {
@@ -20,6 +21,9 @@ public interface ContactRepository extends CrudRepository< Contact, Long > {
  * findAllByCompanyName
  * findAllByName
  * findAllByEmail
+ *
+ * findAllByJobApplications
+ * findAllByJobApplicationsNotContains
  */
 
 
@@ -49,5 +53,15 @@ public interface ContactRepository extends CrudRepository< Contact, Long > {
 // find all by email
 
 	Set< Contact > findAllByEmail( String email );
+
+
+// find all by job application
+
+	Set< Contact > findAllByJobApplications( JobApplication jobApplication );
+
+
+// find all by job application not contains
+
+	Set< Contact > findAllByJobApplicationsNotContains( JobApplication jobApplication );
 
 }

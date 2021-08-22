@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.logan.jobApplications.mvc.models.Contact;
+import com.logan.jobApplications.mvc.models.JobApplication;
 import com.logan.jobApplications.mvc.services.ContactService;
+import com.logan.jobApplications.mvc.services.JobApplicationService;
 
 @RestController
 @CrossOrigin
@@ -22,10 +24,20 @@ public class ContactAPI {
 // Initialize Service
 
 
+	private final JobApplicationService jobApplicationService;
 	private final ContactService contactService;
 
-	public ContactAPI( ContactService contactService )
-		{ this.contactService = contactService; }
+	public ContactAPI(
+
+		ContactService contactService,
+		JobApplicationService jobApplicationService
+
+	) {
+
+		this.contactService = contactService;
+		this.jobApplicationService = jobApplicationService;
+
+	}
 
 
 // Create
@@ -113,6 +125,36 @@ public class ContactAPI {
 	@RequestMapping( value = "/email/{email}", method = RequestMethod.GET )
 	public Set< Contact > findAllByEmail( @PathVariable( "email" ) String email )
 		{ return contactService.findAllByEmail( email ); }
+
+
+// find all contacts by job application
+
+	@RequestMapping( value = "/jobApplication/{jobApplicationId}", method = RequestMethod.GET )
+	public Set< Contact > findAllByJobApplications( @PathVariable( "jobApplicationId" ) Long jobApplicationId ) {
+
+		JobApplication jobApplication = jobApplicationService.findById( jobApplicationId );
+
+		if ( jobApplication != null )
+			return contactService.findAllByJobApplications( jobApplication );
+
+		return null;
+
+	}
+
+
+// find all by job application not contains
+
+	@RequestMapping( value = "/notJobApplication/{jobApplicationId}", method = RequestMethod.GET )
+	public Set< Contact > findAllByJobApplicationsNotContains( @PathVariable( "jobApplicationId" ) Long jobApplicationId ) {
+
+		JobApplication jobApplication = jobApplicationService.findById( jobApplicationId );
+
+		if ( jobApplication != null )
+			return contactService.findAllByJobApplicationsNotContains( jobApplication );
+
+		return null;
+
+	}
 
 
 // Update

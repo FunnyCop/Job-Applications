@@ -1,0 +1,61 @@
+.TableContainer {
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.TableContainer table {
+  width: 100%;
+}
+
+.TableContainer table thead {
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.TableContainer table tr {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.21);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.TableContainer table tbody tr .ID {
+  color: #7D53DE;
+}
+
+.TableContainer table tbody tr .StatusOpen {
+  color: #018E42;
+}
+
+.TableContainer table tbody tr .StatusClosed {
+  color: #E71D36;
+}
+
+.TableContainer table tbody tr .Interviews {
+  color: #FAF33E;
+}
+
+.TableContainer table tbody tr .JobTitle {
+  color: #26FFE6;
+}
+
+.TableContainer table tbody tr .Name {
+  color: #018E42;
+}
+
+.TableContainer table tbody tr .Email {
+  color: #E71D36;
+}
+
+.TableContainer table tbody tr:hover {
+  background-color: rgba(125, 125, 125, 0.1);
+}

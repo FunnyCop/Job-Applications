@@ -1,4 +1,7 @@
 .Component
+    width: 90%
+    height: 90%
+
     padding: 10px
 
     background-color: #2F2F2F
@@ -10,74 +13,38 @@
 
     gap: 10px
 
-    header, nav
-        width: 100%
+.Header
+    width: 100%
 
-        display: flex
+    margin-bottom: -5px
 
-        justify-content: center
+    text-align: center
 
-        gap: 10px
+    user-select: none
 
-        user-select: none
+.HeadingText
+    text-shadow: 2px 2px 4px rgba( 0, 0, 0, 1 )
 
-    header
-        margin-bottom: -10px
 
-    nav
 
-        .NavButton
-            padding: 5px
+nav
+    width: 100%
 
-            background-color: #2F2F2F
+    display: flex
 
-            border: none
+    justify-content: center
 
-            box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
+    gap: 10px
 
-    main
-        padding-left: 10px
-        padding-right: 10px
+    user-select: none
+
+nav
+
+    .NavButton
+        padding: 5px
+
+        background-color: #2F2F2F
+
+        border: none
 
         box-shadow: 0px 0px 3px 2px rgba( 0, 0, 0, 0.3 )
-
-        flex-grow: 1
-
-        table
-
-            thead
-                user-select: none
-
-            tr
-                border-bottom: 2px solid rgba( 0, 0, 0, 0.21 )
-
-                // ID Column
-                .ID
-                    color: #7D53DE
-
-                    user-select: none
-
-                // Status Column
-                .StatusOpen
-                    color: #018E42
-
-                    user-select: none
-
-                // Status Column
-                .StatusClosed
-                    color: #E71D36
-
-                    user-select: none
-
-                // Interviews Column
-                .Interviews
-                    color: #FAF33E
-
-                    user-select: none
-
-                // Job Title column
-                .JobTitle
-                    color: #26FFE6
-
-            tbody tr:hover
-                background-color: rgba( 125, 125, 125, 0.1 )

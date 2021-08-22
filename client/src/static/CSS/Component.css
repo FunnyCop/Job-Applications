@@ -1,4 +1,6 @@
 .Component {
+  width: 90%;
+  height: 90%;
   padding: 10px;
   background-color: #2F2F2F;
   -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
@@ -13,7 +15,21 @@
   gap: 10px;
 }
 
-.Component header, .Component nav {
+.Header {
+  width: 100%;
+  margin-bottom: -5px;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.HeadingText {
+  text-shadow: 2px 2px 4px black;
+}
+
+nav {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,75 +44,10 @@
           user-select: none;
 }
 
-.Component header {
-  margin-bottom: -10px;
-}
-
-.Component nav .NavButton {
+nav .NavButton {
   padding: 5px;
   background-color: #2F2F2F;
   border: none;
   -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
-}
-
-.Component main {
-  padding-left: 10px;
-  padding-right: 10px;
-  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-.Component main table thead {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.Component main table tr {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.21);
-}
-
-.Component main table tr .ID {
-  color: #7D53DE;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.Component main table tr .StatusOpen {
-  color: #018E42;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.Component main table tr .StatusClosed {
-  color: #E71D36;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.Component main table tr .Interviews {
-  color: #FAF33E;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.Component main table tr .JobTitle {
-  color: #26FFE6;
-}
-
-.Component main table tbody tr:hover {
-  background-color: rgba(125, 125, 125, 0.1);
 }

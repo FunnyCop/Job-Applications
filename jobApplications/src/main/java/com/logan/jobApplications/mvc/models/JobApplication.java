@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +20,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table( name = "job_applications" )
@@ -51,7 +54,7 @@ public class JobApplication {
  * createdAt - Date - Generated
  * updatedAt - Date - Generated
  *
- * contacts - Set< Contact > - One to Many ( unidirectional )
+ * contacts - Set< Contact > - Many to Many
  */
 
 
@@ -193,7 +196,7 @@ public class JobApplication {
 
 // jobApplication.contacts
 
-	@ManyToMany( cascade = CascadeType.ALL )
+	@ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY )
 
 	@JoinTable(
 
@@ -202,6 +205,8 @@ public class JobApplication {
 		inverseJoinColumns = { @JoinColumn( name = "contact_id" ) }
 
 	)
+
+	@JsonManagedReference
 
 	private Set< Contact > contacts;
 
