@@ -7,7 +7,7 @@ import AddContact from "./AddContact.jsx"
 
 import "../static/CSS/Modal.css"
 
-// Requires props.id and props.setModal()
+// Requires props.id, props.setModal(), and props.setSmallTable()
 const JobApplicationDetails = props => {
 
     const [ status, setStatus ] = useState( "" )
@@ -58,7 +58,7 @@ const JobApplicationDetails = props => {
 
         } ).catch( err => console.log( err ) )
 
-    }, [] )
+    }, [ props.id ] )
 
     const handleSubmit = e => {
 
@@ -113,11 +113,8 @@ const JobApplicationDetails = props => {
                     ? setDescriptionError( res.data.description )
                     : setDescriptionError( null )
 
-            } else {
-
+            } else
                 window.location.reload( false )
-
-            }
 
         } ).catch( err => console.log( err ) )
 
@@ -148,10 +145,21 @@ const JobApplicationDetails = props => {
                     <span>
 
                             <button className = "GoToContactsButton"
-                                onClick = { () => props.setModal(
-                                    <ContactTable getDetails = { props.getDetails }
-                                        url = { `http://192.168.1.253/api/Contact/jobApplication/${ props.id }` } />
-                                ) }>Go to Contacts</button> {/* TODO */}
+                                onClick = { () => props.setSmallTable( <div id = "SmallTable">
+
+                                        <div className = "FormHeader">
+
+                                            <h5 className = "HeadingText" id = "SubHeader">Contacts for Job Application #{ props.id }</h5>
+
+                                            <button className = "CloseModalButton"
+                                                onClick = { () => props.setSmallTable( null ) }>x</button>
+
+                                        </div>
+
+                                        <ContactTable getDetails = { props.getDetails }
+                                            url = { `http://192.168.1.253/api/Contact/jobApplication/${ props.id }` } />
+
+                                </div> ) }>Open Contacts</button> {/* TODO */}
 
                             <button className = "ClearFormButton"
                                 onClick = { () => clearForm() }>Clear</button>

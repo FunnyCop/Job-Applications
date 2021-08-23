@@ -13,11 +13,11 @@ const JobApplicationTable = props => {
     // Get Job Applications from Database
     useEffect( () => {
 
-        axios.get( "http://192.168.1.253/api/JobApplication/all" )
+        axios.get( props.url )
         .then( res => setJobApplications( res.data ) )
         .catch( err => console.log( err ) )
 
-    }, [] )
+    }, [ props.url ] )
 
     return (
 

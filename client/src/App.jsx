@@ -8,6 +8,9 @@ import JobApplicationDetails from "./components/JobApplicationDetails.jsx"
 import ContactNav from "./components/ContactNav.jsx"
 import ContactTable from "./components/ContactTable.jsx"
 import ContactForm from "./components/ContactForm.jsx"
+import ContactDetails from "./components/ContactDetails.jsx"
+
+import Sort from "./components/Sort.jsx"
 
 const App = () => {
 
@@ -19,6 +22,9 @@ const App = () => {
 
   // Table Component
   const [ table, setTable ] = useState( null )
+
+  // Second Table
+  const [ smallTable, setSmallTable ] = useState( null )
 
   // Modal Component
   const [ modal, setModal ] = useState( null )
@@ -41,6 +47,9 @@ const App = () => {
 
     }
 
+    if ( type === "Sort Open" )
+      setTable( <JobApplicationTable getDetails = { getDetails } url = "http://192.168.1.253/api/JobApplication/open" /> )
+
   }
 
   const getModal = type => {
@@ -52,17 +61,17 @@ const App = () => {
           setModal( <ContactForm setModal = { setModal } /> )
 
       if ( type === "Sort" )
-        setModal( null ) // TODO
+        setModal( <Sort setModal = { setModal } getTable = { getTable } /> )
 
   }
 
   const getDetails = ( type, id ) => {
 
     if ( type === "Job Application" )
-      setModal( <JobApplicationDetails id = { id } setModal = { setModal } /> ) // TODO
+      setModal( <JobApplicationDetails id = { id } setModal = { setModal } setSmallTable = { setSmallTable } getDetails = { getDetails } /> ) // TODO
 
     if ( type === "Contact" )
-      setModal( null ) // TODO
+      setModal( <ContactDetails id = { id } setModal = { setModal } setSmallTable = { setSmallTable } getDetails = { getDetails } /> ) // TODO
 
   }
 
@@ -76,7 +85,9 @@ const App = () => {
 
           { nav ? nav : <JobApplicationNav getModal = { getModal } getTable = { getTable } /> }
 
-          { table ? table : <JobApplicationTable getDetails = { getDetails } /> }
+          { table ? table : <JobApplicationTable getDetails = { getDetails } url = "http://192.168.1.253/api/JobApplication/all" /> }
+
+          { smallTable ? smallTable : null }
 
           { modal ? modal : null }
 

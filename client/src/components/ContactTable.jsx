@@ -17,12 +17,12 @@ const ContactTable = props => {
         .then( res => setContacts( res.data ) )
         .catch( err => console.log( err ) )
 
-    }, [] )
+    }, [ props.url ] )
 
     return (
 
         // Table Container
-        <div className = "TableContainer table-responsive">
+        <div className = "TableContainer table-responsive" id = "ContactTable">
 
             <table className = "table">
 

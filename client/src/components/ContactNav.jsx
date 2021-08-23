@@ -19,10 +19,6 @@ const ContactNav = props => {
             <button className = "NavButton"
                 onClick = { () => props.getTable( "Job Applications" ) }>View Job Applications</button>
 
-            {/* Get Sort Modal */}
-            <button className = "NavButton"
-                onClick = { () => props.getModal( "Sort" ) }>Sort</button> {/* TODO */}
-
             {/* Refresh Page */}
             <button className = "NavButton"
                 onClick = { () => window.location.reload( false ) }>Refresh</button>

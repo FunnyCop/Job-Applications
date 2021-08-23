@@ -18,7 +18,7 @@ const AddContact = props => {
 
     }
 
-    useEffect( () => getContacts(), [] )
+    useEffect( () => getContacts() )
 
     const handleSubmit = e => {
 

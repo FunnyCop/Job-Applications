@@ -3,6 +3,7 @@ package com.logan.jobApplications.mvc.repositories;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -59,8 +60,15 @@ public interface JobApplicationRepository extends CrudRepository< JobApplication
 
 	Set< JobApplication > findAllByContacts( Contact contact );
 
+
 // find all by contact not contains
 
 	Set< JobApplication > findAllByContactsNotContains( Contact contact );
+
+
+// find all with status "open"
+
+	@Query( value = "SELECT * FROM job_applications WHERE status = 'open'", nativeQuery = true )
+	Set< JobApplication > findAllOpen();
 
 }

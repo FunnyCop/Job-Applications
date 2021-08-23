@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 import qs from "qs"
 
-import "../static/CSS/Modal.css"
+import JobApplicationTable from "./JobApplicationTable.jsx"
 
-const ContactForm = props => {
+// Requires props.id, props.setModal(), and props.setSmallTable()
+const ContactDetails = props => {
 
     const [ companyName, setCompanyName ] = useState( "" )
     const [ name, setName ] = useState( "" )
@@ -22,13 +23,22 @@ const ContactForm = props => {
 
     }
 
+    useEffect( () => {
+
+        axios.get( `http://192.168.1.253/api/Contact/id/${ props.id }` )
+        .then( res => {
+
+            setCompanyName( res.data.companyName )
+            setName( res.data.name )
+            setEmail( res.data.email )
+
+        } ).catch( err => console.log( err ) )
+
+    } )
+
     const handleSubmit = e => {
 
-        e.preventDefault()
-
-        axios.post(
-
-            "http://192.168.1.253/api/Contact/create",
+        axios.put( `http://192.168.1.253/api/Contact/update/${ props.id }`,
 
             qs.stringify( {
 
@@ -36,28 +46,28 @@ const ContactForm = props => {
                 name: name,
                 email: email
 
-            } )
+            } ).then ( res => {
 
-        ).then( res => {
+                if ( res.data.id === -1 ) {
 
-            if ( res.data.id === -1 ) {
+                    res.data.companyName !== companyName
+                        ? setCompanyNameError( res.data.companyName )
+                        : setCompanyNameError( null )
 
-                res.data.companyName !== companyName
-                    ? setCompanyNameError( res.data.companyName )
-                    : setCompanyNameError( null )
+                    res.data.name !== name
+                        ? setNameError( res.data.name )
+                        : setNameError( null )
 
-                res.data.name !== name
-                    ? setNameError( res.data.name )
-                    : setNameError( null )
+                    res.data.email !== email
+                        ? setEmailError( res.data.email )
+                        : setEmailError( null )
 
-                res.data.email !== email
-                    ? setEmailError( res.data.email )
-                    : setEmailError( null )
+                } else
+                    window.location.reload( false )
 
-            } else
-                window.location.reload( false )
+            } ).catch( err => console.log( err ) )
 
-        } ).catch( err => console.log( err ) )
+        )
 
     }
 
@@ -69,9 +79,26 @@ const ContactForm = props => {
 
                 <div className = "FormHeader">
 
-                    <h3 className = "HeadingText">Create Contact</h3>
+                    <h3 className = "HeadingText">Contact #{ props.id }</h3>
 
                     <span>
+
+                            <button className = "GoToContactsButton"
+                                onClick = { () => props.setSmallTable( <div id = "SmallTable">
+
+                                        <div className = "FormHeader">
+
+                                            <h5 className = "HeadingText" id = "SubHeader">Job Applications for Contact #{ props.id }</h5>
+
+                                            <button className = "CloseModalButton"
+                                                onClick = { () => props.setSmallTable( null ) }>x</button>
+
+                                        </div>
+
+                                        <JobApplicationTable getDetails = { props.getDetails }
+                                            url = { `http://192.168.1.253/api/JobApplication/contact/${ props.id }` } />
+
+                                </div> ) }>Open Job Applications</button> {/* TODO */}
 
                             <button className = "ClearFormButton"
                                 onClick = { () => clearForm() }>Clear</button>
@@ -136,4 +163,4 @@ const ContactForm = props => {
 
 }
 
-export default ContactForm
+export default ContactDetails

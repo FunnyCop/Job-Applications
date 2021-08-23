@@ -162,6 +162,13 @@ public class JobApplicationAPI {
 	}
 
 
+// find all with status "open"
+
+	@RequestMapping( value = "/open", method = RequestMethod.GET )
+	public Set< JobApplication > findAllOpen()
+		{ return jobApplicationService.findAllOpen(); }
+
+
 // Update
 
 

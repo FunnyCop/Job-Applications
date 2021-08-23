@@ -112,6 +112,12 @@ public class JobApplicationService {
 		{ return jobApplicationRepository.findAllByContactsNotContains( contact ); }
 
 
+// find all with status "open"
+
+	public Set< JobApplication > findAllOpen()
+		{ return jobApplicationRepository.findAllOpen(); }
+
+
 // Update
 
 
