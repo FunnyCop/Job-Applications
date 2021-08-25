@@ -118,6 +118,12 @@ public class JobApplicationService {
 		{ return jobApplicationRepository.findAllOpen(); }
 
 
+// find all, order by interviews descending
+
+	public Set< JobApplication > findAllOrderByInterviewsDescending()
+		{ return jobApplicationRepository.findAllOrderByInterviewsDescending(); }
+
+
 // Update
 
 

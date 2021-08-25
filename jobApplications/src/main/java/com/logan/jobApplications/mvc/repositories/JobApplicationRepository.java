@@ -71,4 +71,10 @@ public interface JobApplicationRepository extends CrudRepository< JobApplication
 	@Query( value = "SELECT * FROM job_applications WHERE status = 'open'", nativeQuery = true )
 	Set< JobApplication > findAllOpen();
 
+
+// find all, order by interviews descending
+
+	@Query( value = "SELECT * FROM job_applications ORDER BY interviews DESC", nativeQuery = true )
+	Set< JobApplication > findAllOrderByInterviewsDescending();
+
 }

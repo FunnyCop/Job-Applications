@@ -50,6 +50,19 @@ const App = () => {
     if ( type === "Sort Open" )
       setTable( <JobApplicationTable getDetails = { getDetails } url = "http://192.168.1.253/api/JobApplication/open" /> )
 
+    if ( type === "Sort Interviews" )
+      setTable( <JobApplicationTable getDetails = { getDetails } url = "http://192.168.1.253/api/JobApplication/interviews/descending" /> )
+
+  }
+
+  const getSearch = ( type, value ) => {
+
+    if ( type === "Company Name" )
+      setTable( <JobApplicationTable getDetails = { getDetails } url = { `http://192.168.1.253/api/JobApplication/companyName/${ value }` } /> )
+
+    if ( type === "Job Title" )
+      setTable( <JobApplicationTable getDetails = { getDetails } url = { `http://192.168.1.253/api/JobApplication/jobTitle/${ value }` } /> )
+
   }
 
   const getModal = type => {
@@ -61,7 +74,7 @@ const App = () => {
           setModal( <ContactForm setModal = { setModal } /> )
 
       if ( type === "Sort" )
-        setModal( <Sort setModal = { setModal } getTable = { getTable } /> )
+        setModal( <Sort setModal = { setModal } getTable = { getTable } getSearch = { getSearch } /> )
 
   }
 

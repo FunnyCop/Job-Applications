@@ -18,7 +18,7 @@ const AddContact = props => {
 
     }
 
-    useEffect( () => getContacts() )
+    useEffect( () => getContacts(), [] )
 
     const handleSubmit = e => {
 
@@ -55,8 +55,7 @@ const AddContact = props => {
 
                         <label htmlFor="contact">Contact: </label>
 
-                        <select className = "FormInput" name="contact"
-                            onChange = { e => setContact( e.target.value ) }>
+                        <select className = "FormInput" name="contact" onChange = { e => setContact( e.target.value ) }>
 
                             {
 

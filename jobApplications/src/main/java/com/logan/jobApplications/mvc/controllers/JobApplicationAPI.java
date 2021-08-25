@@ -169,6 +169,13 @@ public class JobApplicationAPI {
 		{ return jobApplicationService.findAllOpen(); }
 
 
+// find all, order by interviews descending
+
+	@RequestMapping( value = "/interviews/descending", method = RequestMethod.GET )
+	public Set< JobApplication > findAllOrderByInterviewsDescending()
+		{ return jobApplicationService.findAllOrderByInterviewsDescending(); }
+
+
 // Update
 
 

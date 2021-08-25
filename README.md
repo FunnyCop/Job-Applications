@@ -20,6 +20,7 @@
         - */contact/{contact}* **GET**
         - */notContact/{contact}* **GET**
         - */open* **GET**
+        - */interviews/descending* **GET**
         - */update/{id}* **PUT**
         - */delete/{id}* **DELETE**
         - */addContact/{jobApplicationId}/{contactId}* **POST**

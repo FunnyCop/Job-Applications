@@ -186,24 +186,28 @@
   height: fit-content;
 }
 
-.Modal #Sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.Modal #Sort .FormSection {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-.Modal #Sort .SortButton {
+.Modal #Sort .FormSection .SortButton {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.Modal #Sort .FormSection .SortButtonInterviews {
+  color: #FAF33E;
+}
+
+.Modal #Sort .FormSection .SearchButton {
+  color: #26FFE6;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 #SmallTable {

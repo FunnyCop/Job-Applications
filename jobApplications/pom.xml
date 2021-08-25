@@ -15,7 +15,7 @@
 	<name>jobApplications</name>
 	<description>jobApplications</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 

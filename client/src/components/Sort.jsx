@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 const Sort = props => {
+
+    const [ companyName, setCompanyName ] = useState( "" )
+    const [ jobTitle, setJobTitle ] = useState( "" )
 
     return (
 
@@ -26,8 +29,43 @@ const Sort = props => {
 
                 <div className = "FormBody" id = "Sort">
 
-                    <button className = "SortButton"
-                        onClick = { () => props.getTable( "Sort Open" ) }>Open</button>
+                    <div className = "FormSection">
+
+                        <button className = "SortButton"
+                            onClick = { () => props.getTable( "Sort Open" ) }>Open</button>
+
+                        <button className = "SortButton SortButtonInterviews"
+                            onClick = { () => props.getTable( "Sort Interviews" ) }>Interviews</button>
+
+                    </div>
+
+                    <div className = "FormSection">
+
+                        <label htmlFor = "companyName">Company Name</label>
+                        <input className = "FormInput"
+                            type = "text"
+                            name = "companyName"
+                            value = { companyName }
+                            onChange = { e => setCompanyName( e.target.value ) } />
+
+                        <button className = "SortButton SearchButton"
+                            onClick = { () => props.getSearch( "Company Name", companyName ) }>Search</button>
+
+                    </div>
+
+                    <div className = "FormSection">
+
+                        <label htmlFor = "jobTitle">JobTitle</label>
+                        <input className = "FormInput"
+                            type = "text"
+                            name = "jobTitle"
+                            value = { jobTitle }
+                            onChange = { e => setJobTitle( e.target.value ) } />
+
+                        <button className = "SortButton SearchButton"
+                            onClick = { () => props.getSearch( "Job Title", jobTitle ) }>Search</button>
+
+                    </div>
 
                 </div>
 
